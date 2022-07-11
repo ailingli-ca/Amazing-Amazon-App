@@ -1,0 +1,22 @@
+<%= render "shared/navbar" %>
+<h1>Bill Splitter</h1>
+
+<%= form_with url: bill_path, method: :get do |f| %>
+    <%= f.label :amount, "Amount" %>
+    <%= f.text_field :amount %>
+    <br>
+    <%= f.label :tax %>
+    <%= f.text_field :tax %>
+    <br>
+    <%= f.label :tip %>
+    <%= f.text_field :tip %>
+    <br>
+    <%= f.label :number_of_people %>
+    <%= f.text_field :number_of_people %>
+    <br>
+    <%= f.submit "Submit"%>
+<% end %>
+
+<% if @result && !@result.nan? %>
+    <p> Every person must pay $<%= @result.round(2)%></p>
+<% end %>

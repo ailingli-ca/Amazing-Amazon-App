@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   get "/about" => "welcome#about"
   get "/contact_us" => "welcome#contact_us"
   get "/thank_you" => "welcome#thank_you"
+  get "/new" => "bills#new"
+  get "/bills" => "bills#result", as: :bill
 
 end

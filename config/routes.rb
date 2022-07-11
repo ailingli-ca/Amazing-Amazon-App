@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get "/home" => "welcome#home"
   get "/about" => "welcome#about"
   get "/contact_us" => "welcome#contact_us"
+  get "/thank_you" => "welcome#thank_you"
 
 end

@@ -11,6 +11,9 @@ class Product < ApplicationRecord
     # scope :search, ->(query) { where("title ILIKE '%#{query}%' or description ILIKE '%#{query}'")}
     scope :search, ->(query) { where("title ILIKE ? OR description ILIKE ?", "%#{query}%", "%#{query}%") }
 
+    # validates :title, exclusion: { in: %w(apple microsoft sony), message: "%{value} is reserved." }
+    validates_exclusion_of :title, in: %w( apple microsoft sony ), message: "please use a different title"
+    
     private
 
     def set_default_price

@@ -3,7 +3,7 @@ class Product < ApplicationRecord
     uniqueness: {case_sensitive: false} 
 
     validates :price, numericality: {greater_than: 0}
-    validates :description, presence: true, length: {mininum: 10}
+    validates :description, presence: true, length: { minimum: 10 }
 
     # before_validation :set_default_price, :capitalize_title
     before_save :capitalize_title
@@ -17,7 +17,7 @@ class Product < ApplicationRecord
     private
 
     def set_default_price
-        self.price || = 1
+        self.price ||= 1
     end
 
     def capitalize_title

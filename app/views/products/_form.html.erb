@@ -1,0 +1,18 @@
+
+<%= form_with(model: @product) do |f| %>
+<%# or = form_with(model: @product, local: true) do |f| %> 
+
+  <div>
+    <%= f.label :title%>
+    <%= f.text_field :title, placeholder: "Product Name"%>
+  </div>
+  <div>
+    <%= f.label :description%>
+    <%= f.text_area(:description, cols: 50, rows: 5, placeholder: "Provide Description")%>
+  </div>
+  <div>
+    <%= f.label :price%>
+    <%= f.number_field :price, min: 0, placeholder: "Enter Price", step: :any %>
+  </div>
+  <%= f.submit %>
+<% end %>

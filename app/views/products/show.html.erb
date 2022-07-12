@@ -1,0 +1,12 @@
+<%= render 'shared/navbar' %>
+<h1>Products#show</h1>
+<p>Find me in app/views/products/show.html.erb</p>
+
+<div>
+    ID: <%= @product.id %>
+    <div><%= @product.title %></div>
+    <p><%= @product.description %></p>
+    <span><%= number_to_currency @product.price %></span>
+    <p><small>Created at: <%= @product.created_at %></smalll></p>
+
+</div>

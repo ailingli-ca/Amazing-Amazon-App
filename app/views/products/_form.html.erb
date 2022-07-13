@@ -1,3 +1,4 @@
+<%= render "shared/navbar" %>
 
 <%= form_with(model: @product) do |f| %>
 <%# or = form_with(model: @product, local: true) do |f| %> 
@@ -15,4 +16,9 @@
     <%= f.number_field :price, min: 0, placeholder: "Enter Price", step: :any %>
   </div>
   <%= f.submit %>
+  <%# if @product.new_record? %>
+    <%#= f.submit("Create") %>
+  <%# else %>
+    <%#= f.submit("Update") %>
+  <%# end %>
 <% end %>

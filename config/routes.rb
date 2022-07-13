@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   # #upcate
   # patch 'products/:id', to: 'products#update'
   
-  resources :products
+  resources :products do
+    resources :reviews, only: [:create, :destroy]
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

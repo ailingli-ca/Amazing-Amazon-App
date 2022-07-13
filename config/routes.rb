@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   #show
   get 'products/:id', to: 'products#show', as: :product
+
+  #destroy
+  delete 'products/:id', to: 'products#destroy', as: :delete_product
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

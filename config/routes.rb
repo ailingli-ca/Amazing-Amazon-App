@@ -1,25 +1,27 @@
 Rails.application.routes.draw do
-  #new
-  get 'products/new'
+  # #new
+  # get 'products/new'
 
-  #create
-  post 'products', to: 'products#create'
+  # #create
+  # post 'products', to: 'products#create'
 
-  #index
-  get 'products', to: 'products#index'
+  # #index
+  # get 'products', to: 'products#index'
 
-  #show
-  get 'products/:id', to: 'products#show', as: :product
+  # #show
+  # get 'products/:id', to: 'products#show', as: :product
 
-  #destroy
-  delete 'products/:id', to: 'products#destroy', as: :delete_product
+  # #destroy
+  # delete 'products/:id', to: 'products#destroy', as: :delete_product
 
-  #edit
-  get 'products/:id/edit', to: 'products#edit', as: :edit_product
+  # #edit
+  # get 'products/:id/edit', to: 'products#edit', as: :edit_product
 
-  #upcate
-  patch 'products/:id', to: 'products#update'
+  # #upcate
+  # patch 'products/:id', to: 'products#update'
   
+  resources :products
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
+  before_action :load_product, except: [:create, :index]
+
   def new 
-    @product = Product.new
+    # @product = Product.new
   end
 
   def create 
@@ -17,21 +19,21 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @product = Product.find params[:id]
+    # @product = Product.find params[:id]
   end
 
   def destroy
-    @product = Product.find params[:id]
+    # @product = Product.find params[:id]
     @product.destroy
     redirect_to products_path
   end
 
   def edit
-    @product = Product.find params[:id]
+    # @product = Product.find params[:id]
   end
 
   def update
-    @product = Product.find params[:id]
+    # @product = Product.find params[:id]
     if @product.update(product_params)
       redirect_to product_path(@product)
     else
@@ -45,6 +47,13 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:title, :description, :price)
   end
 
+  def load_product
+    if params[:id].present? 
+      @product = Product.find(params[:id])
+    else 
+      @product = Product.new
+    end
+  end
 end
 
 

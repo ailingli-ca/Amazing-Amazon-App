@@ -24,6 +24,7 @@
             <%= review.body %>
             <%= review.rating%>
             <small>Created <%= time_ago_in_words(review.created_at) %> ago</small>
+            <%= button_to "Delete", product_review_path(@product, review), method: :delete,form: { data: { turbo_confirm: "Are you sure?" } } %>
             <hr>
         </li>
     <% end %>

@@ -8,7 +8,7 @@
     <p><%= @product.description %></p>
     <span><%= number_to_currency @product.price %></span>
     <p><small>Created at: <%= @product.created_at %></smalll></p>
-
+    <label>Created by: <%= @product.user.full_name %></label>
 
 <%= button_to "Delete", product_path(@product), method: :delete, data: { confirm: "Are you sure?"} %>
 <%= link_to "Edit", edit_product_path(@product) %>
@@ -23,7 +23,7 @@
         <li>
             <%= review.body %>
             <%= review.rating%>
-            <small>Created <%= time_ago_in_words(review.created_at) %> ago</small>
+            <small>Created <%= time_ago_in_words(review.created_at) %> ago by: <label><%= review.user.full_name %></label></small>
             <%= button_to "Delete", product_review_path(@product, review), method: :delete,form: { data: { turbo_confirm: "Are you sure?" } } %>
             <hr>
         </li>

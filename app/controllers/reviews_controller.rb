@@ -1,9 +1,11 @@
 class ReviewsController < ApplicationController
     before_action :find_product
+    before_action :authenticate_user!
 
     def create
         @review = Review.new(params.require(:review).permit(:rating, :body))
         @review.product = @product
+        @review.user = current_user
         if @review.save
           redirect_to product_path(@product), notice: "review created!"
         else
